@@ -22,10 +22,16 @@
 	"devDependencies": {
 		"browserify": "^11.2.0",
 		"envify": "^3.4.0",
+		"reactify": "^1.1.1",
 		"uglify-js": "^2.5.0"
 	},
 
 	"scripts": {
 		"build": "browserify js/app.js -t [envify --NODE_ENV production] | uglifyjs -cm > js/bundle.min.js"
+	},
+
+	"browserify": {
+		"transform": ["envify", "reactify"]
 	}
+
 }
