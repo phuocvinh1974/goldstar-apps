@@ -21,10 +21,11 @@
 
 	"devDependencies": {
 		"browserify": "^11.2.0",
-		"babelify": "^6.4.0"
+		"babelify": "^6.4.0",
+		"uglify-js": "^2.5.0"
 	},
 
 	"scripts": {
-		"start": "browserify js/app.js -t babelify --outfile js/bundle.js"
+		"start": "browserify js/app.js -t babelify | uglifyjs -cm > js/bundle.js"
 	}
 }
