@@ -1,0 +1,30 @@
+{
+	"name": "goldstar-apps",
+	"version": "0.1.0",
+	"description": "Apps of GoldstarCine Company",
+	
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/nguyenhuuhanhlam/goldstar-apps"
+	},
+
+	"license": "MIT",
+
+	"dependencies": {
+		"react": "^0.14.0",
+		"react-dom": "^0.14.0",
+		"flux": "^2.1.1",
+		"object-assign": "^4.0.1",
+		"keymirror": "^0.1.1",
+		"axios": "^0.7.0"
+	},
+
+	"devDependencies": {
+		"browserify": "^11.2.0",
+		"babelify": "^6.4.0"
+	},
+
+	"scripts": {
+		"start": "browserify js/app.js -t babelify --outfile js/bundle.js"
+	}
+}
