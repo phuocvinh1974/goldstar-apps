@@ -1,1 +1,1 @@
-var App = React.createClass({});
+var React = require('react');
