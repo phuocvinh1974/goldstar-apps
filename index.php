@@ -1,11 +1,11 @@
 <html>
 <head>
-	<title>GS APPS</title>
+	<title>GoldstarCine Apps</title>
 	<link rel="stylesheet" href="default.css">
 </head>
 <body>
 	<div style="margin:12px 0 0 12px">
-		<div style="margin:0 0 12px 0">APPS FOLDER</div>
+		<div style="margin:0 0 12px 0">GOLDSTAR APPS FOLDER</div>
 		<?php
 			foreach ( glob ('./*', GLOB_ONLYDIR) as $dir )
 			{

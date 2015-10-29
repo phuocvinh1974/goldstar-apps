@@ -11,27 +11,22 @@
 	"license": "MIT",
 
 	"dependencies": {
-		"react": "^0.14.0",
-		"react-dom": "^0.14.0",
+		"react": "^0.14.1",
+		"react-dom": "^0.14.1",
 		"flux": "^2.1.1",
 		"object-assign": "^4.0.1",
 		"keymirror": "^0.1.1",
-		"axios": "^0.7.0"
+		"axios": "^0.7.0",
+		"material-design-lite": "^1.0.5"
 	},
 
 	"devDependencies": {
 		"browserify": "^11.2.0",
-		"envify": "^3.4.0",
-		"reactify": "^1.1.1",
+		"babelify": "^6.4.0",
 		"uglify-js": "^2.5.0"
 	},
 
 	"scripts": {
-		"build": "browserify js/app.js -t [envify --NODE_ENV production] | uglifyjs -cm > js/bundle.min.js"
-	},
-
-	"browserify": {
-		"transform": ["envify", "reactify"]
+		"build": "browserify js/app.js -t babelify | uglifyjs -cm > js/bundle.min.js"
 	}
-
 }

@@ -1,0 +1,10 @@
+.flex
+{
+	display: -webkit-flex;
+}
+
+/* REDEFINE MATERIAL-DESIGN-LITE */
+.mdl-layout__header
+{
+	background-color: #C2185B;
+}
