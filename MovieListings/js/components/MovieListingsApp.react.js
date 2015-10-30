@@ -1,14 +1,18 @@
 var React = require('react');
 
+var MovieListingsTopbar = require('./MovieListingsTopbar.react');
+var MovieListingsQuickAdd = require('./MovieListingsQuickAdd.react');
+var MovieListingsGrid = require('./MovieListingsGrid.react');
+
 var MovieListingsApp = React.createClass({
 	render: function () {
 		return (
-			<div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-				<header className="mdl-layout__header">
-					<div className="mdl-layout__header-row">
-						<span className="mdl-layout-title">Movie Listings</span>
-					</div>
-				</header>
+			<div>
+				<MovieListingsTopbar />
+				<div>
+					<MovieListingsQuickAdd />
+					<MovieListingsGrid />
+				</div>
 			</div>
 		);
 	}
