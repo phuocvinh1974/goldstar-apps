@@ -17,7 +17,7 @@ var MovieListingsQuickAdd = React.createClass({
 				<input value={this.state.shortTitle} onChange={this._movieShortTitleChange} placeholder="Movie Short Title" />
 				<input value={this.state.IntTitle} onChange={this._movieIntTitleChange} placeholder="International Title" />
 				<input placeholder="Title" />
-				<input placeholder="Runtime" />
+				<input placeholder="Runtime (minutes)" />
 				<select onChange={this._movieFormatChange}>
 					<option value="2D">2D</option>
 					<option value="3D">3D</option>
