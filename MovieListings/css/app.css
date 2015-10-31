@@ -6,9 +6,15 @@
 	src: url("../fonts/MaterialIcons-Regular.ttf") format("truetype");
 }
 
+@font-face
+{
+	font-family: "RobotoCondensed-Light";
+	src: url("../fonts/RobotoCondensed-Light.ttf");
+}
+
 .material-icons
 {
-	font-family: 'Material Icons';
+	font-family: 'Material Icons' !important;
 	font-weight: normal;
 	font-style: normal;
 	font-size: 24px;
@@ -29,6 +35,7 @@
 {
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
+	font-family: "RobotoCondensed-Light" !important;
 }
 
 input

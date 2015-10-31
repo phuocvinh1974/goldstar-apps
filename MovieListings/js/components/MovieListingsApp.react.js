@@ -6,8 +6,6 @@ var MovieListingsGrid = require('./MovieListingsGrid.react');
 
 var MovieListingsStore = require('../stores/MovieListingsStore');
 
-var xyz = require('../helpers/xyz');
-
 var MovieListingsApp = React.createClass({
 
 	// componentDidMount: function () {
@@ -17,12 +15,9 @@ var MovieListingsApp = React.createClass({
 	render: function () {
 		return (
 			<div>
-				<div>{xyz.msg}</div>
 				<MovieListingsTopbar />
-				<div>
-					<MovieListingsQuickAdd />
-					<MovieListingsGrid />
-				</div>
+				<MovieListingsQuickAdd />
+				<MovieListingsGrid />
 			</div>
 		);
 	}

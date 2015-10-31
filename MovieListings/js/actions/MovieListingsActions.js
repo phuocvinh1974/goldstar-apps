@@ -8,20 +8,17 @@ var MovieListingsActions = {
 			data: state
 		});
 	},
-	updateMovieInfos: function () {
+	updateMovieInfos: function (id,state) {
 		AppDispatcher.dispatch({
 			actionType: MovieListingsConstants.MOVIE_UPDATE,
-			data: "???"
+			movieId: id,
+			data: state
 		});
 	},
-	deleteMovie: function () {
-		console.log('this is deleteMovie')
-	},
-
-	readme: function () {
+	deleteMovie: function (id) {
 		AppDispatcher.dispatch({
-			actionType: 'README',
-			data: "readme..."
+			actionType: MovieListingsConstants.MOVIE_DELETE,
+			movieId: id
 		});
 	}
 };

@@ -6,7 +6,8 @@ var MovieListingsQuickAdd = React.createClass({
 
 	getInitialState: function () {
 		return {
-			shortTitle: null, IntTitle: null, mediaFormat: null, ReleaseDate: null
+			shortTitle: null, IntTitle: null, Title: null,
+			Runtime: null, mediaFormat: null, ReleaseDate: null
 		}
 	},
 
@@ -20,6 +21,7 @@ var MovieListingsQuickAdd = React.createClass({
 				<select onChange={this._movieFormatChange}>
 					<option value="2D">2D</option>
 					<option value="3D">3D</option>
+					<option value="BOTH">BOTH</option>
 				</select>
 				<input value={this.state.ReleaseDate} onChange={this._movieReleaseDateChange} placeholder="Release Date" />
 				<button onClick={this._addNewMovie}>ADD</button>
@@ -27,7 +29,7 @@ var MovieListingsQuickAdd = React.createClass({
 		);
 	},
 
-	// EVENTS
+	// SELF EVENTS
 	_movieShortTitleChange: function (e) {
 		this.setState({ shortTitle: e.target.value });
 	},
