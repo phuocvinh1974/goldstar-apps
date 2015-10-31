@@ -6,15 +6,15 @@ var MovieListingsQuickAdd = React.createClass({
 
 	getInitialState: function () {
 		return {
-			ReleaseDate: null
+			shortTitle: null, IntTitle: null, mediaFormat: null, ReleaseDate: null
 		}
 	},
 
 	render: function () {
 		return (
 			<div>
-				<input placeholder="Movie Short Title" />
-				<input placeholder="International Title" />
+				<input value={this.state.shortTitle} onChange={this._movieShortTitleChange} placeholder="Movie Short Title" />
+				<input value={this.state.IntTitle} onChange={this._movieIntTitleChange} placeholder="International Title" />
 				<input placeholder="Title" />
 				<input placeholder="Runtime" />
 				<select onChange={this._movieFormatChange}>
@@ -28,8 +28,14 @@ var MovieListingsQuickAdd = React.createClass({
 	},
 
 	// EVENTS
-	_movieFormatChange: function () {
-		console.log ('format changed')
+	_movieShortTitleChange: function (e) {
+		this.setState({ shortTitle: e.target.value });
+	},
+	_movieIntTitleChange: function (e) {
+		this.setState({ IntTitle: e.target.value });
+	},
+	_movieFormatChange: function (e) {
+		this.setState({ mediaFormat: e.target.value });
 	},
 	_movieReleaseDateChange: function (e) {
 		this.setState({ ReleaseDate: datetimeHelper.dateMaskedInput(e.target.value) });

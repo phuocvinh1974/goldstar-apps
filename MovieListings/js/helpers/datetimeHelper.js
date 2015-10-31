@@ -1,4 +1,7 @@
 var datetimeHelper = {
+	/*
+		dateMaskedInput ( dateString )
+	*/
 	dateMaskedInput: function (s) {
 		var s = s.split('-');
 
@@ -12,7 +15,7 @@ var datetimeHelper = {
 					return parseInt(v) > 12 ? '01' : v;
 				break;
 				case 2:
-					return v;
+					return v.length > 4 ? new Date().getFullYear() : v;
 				break;
 			}
 		});
