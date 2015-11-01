@@ -10,7 +10,7 @@ var UIActions = {
 	menuMoreToggle: function (rect) {
 		AppDispatcher.dispatch({
 			actionType: UIConstants.UI_MORE_TOGGLE,
-			data: rect
+			rect: rect
 		});
 	}
 };
