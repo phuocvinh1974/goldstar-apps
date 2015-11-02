@@ -17,6 +17,10 @@ var UIStore = assign({}, EventEmitter.prototype, {
 		this.on(CHANGE_EVENT, callback);
 	},
 
+	removeChangeListener: function (callback) {
+		this.removeListener(CHANGE_EVENT, callback);
+	},
+
 	emitChange: function () {
 		this.emit(CHANGE_EVENT);
 	}
@@ -25,13 +29,18 @@ var UIStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register( function (action) {
 	switch (action.actionType)
 	{
-		case UIConstants.UI_DRAWER_TOGGLE:
-			_ui = { which: UIConstants.UI_DRAWER_TOGGLE }
+		case UIConstants.MENU_SHOW_DRAWER:
+			_ui = { which: UIConstants.MENU_SHOW_DRAWER }
 			UIStore.emitChange();
 		break;
 
-		case UIConstants.UI_MORE_TOGGLE:
-			_ui = { which: UIConstants.UI_MORE_TOGGLE, rect: action.rect }
+		case UIConstants.MENU_SHOW_MORE:
+			_ui = { which: UIConstants.MENU_SHOW_MORE, rect: action.rect }
+			UIStore.emitChange();
+		break;
+
+		case UIConstants.MENU_HIDE_MORE:
+			_ui = { which: UIConstants.MENU_HIDE_MORE }
 			UIStore.emitChange();
 		break;
 	}

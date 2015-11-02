@@ -2,20 +2,20 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 var MovieListingsConstants = require('../constants/MovieListingsConstants');
 
 var MovieListingsActions = {
-	addNewMovie: function (state) {
+	movieAdd: function (state) {
 		AppDispatcher.dispatch({
 			actionType: MovieListingsConstants.MOVIE_ADD,
 			data: state
 		});
 	},
-	updateMovieInfos: function (id,state) {
+	movieUpdate: function (id,state) {
 		AppDispatcher.dispatch({
 			actionType: MovieListingsConstants.MOVIE_UPDATE,
 			movieId: id,
 			data: state
 		});
 	},
-	deleteMovie: function (id) {
+	movieDelete: function (id) {
 		AppDispatcher.dispatch({
 			actionType: MovieListingsConstants.MOVIE_DELETE,
 			movieId: id

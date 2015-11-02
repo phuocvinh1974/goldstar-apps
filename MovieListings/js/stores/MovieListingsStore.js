@@ -1,22 +1,17 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
-// var EventEmitter = require('events').EventEmitter;
+var EventEmitter = require('events').EventEmitter;
 var MovieListingsConstants = require('../constants/MovieListingsConstants');
-// var assign = require('object-assign');
+var assign = require('object-assign');
 
-// var MovieListingsStore = {};
+var MovieListingsStore = {};
 
 AppDispatcher.register( function (action) {
 	switch (action.actionType)
 	{
 		case MovieListingsConstants.MOVIE_ADD:
-			console.log(action.data)
-			// MovieListingsStore.emitChange();
-		break;
-
-		case 'README':
-			console.log(action.data)
+			console.log('movie add - data')
 		break;
 	}
 });
 
-// module.exports = MovieListingsStore;
+module.exports = MovieListingsStore;

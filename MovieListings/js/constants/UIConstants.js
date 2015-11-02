@@ -1,6 +1,6 @@
 var keyMirror = require('keymirror');
 
 module.exports = keyMirror({
-	UI_DRAWER_TOGGLE: null,
-	UI_MORE_TOGGLE: null
+	MENU_SHOW_DRAWER: null,
+	MENU_SHOW_MORE: null, MENU_HIDE_MORE: null
 });
