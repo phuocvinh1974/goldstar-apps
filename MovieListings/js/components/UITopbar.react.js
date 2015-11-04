@@ -6,7 +6,7 @@ var UITopbar = React.createClass({
 	
 	render: function () {
 		
-		var baseStyle = {display:'-webkit-flex',height:48,WebkitAlignItems:'center',color:'#F3E5F5',backgroundColor:'#8E24AA'};
+		var baseStyle = {display:'-webkit-flex',height:48,WebkitAlignItems:'center',color:'#FFF',backgroundColor:'#D81B60'};
 		
 		return (
 			<div style={assign(baseStyle,{WebkitJustifyContent:'space-between'})}>
@@ -15,6 +15,7 @@ var UITopbar = React.createClass({
 					<span style={{marginLeft:20}}>{this.props._title}</span>
 				</div>
 				<div style={baseStyle}>
+					<i className="material-icons" style={{marginRight:10,cursor:'pointer'}}>search</i>
 					<i onClick={this._showMenuMore} className="material-icons" style={{marginRight:10,cursor:'pointer'}}>more_vert</i>
 				</div>
 			</div>

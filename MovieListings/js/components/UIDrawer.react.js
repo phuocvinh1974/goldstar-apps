@@ -27,10 +27,10 @@ var UIDrawer = React.createClass({
 			<div className="navigation-drawer" style={baseStyle}>
 				<div>
 					<div style={{marginLeft:16,paddingTop:40}}>
-						<div style={{width:64,height:64,borderRadius:'50%',backgroundColor:'#BDBDBD'}}></div>
+						<div style={{width:64,height:64,borderRadius:'50%',backgroundColor:'#BDBDBD',backgroundImage:this.props.comm.avatarUrl,backgroundSize:'68px 68px',backgroundPosition:'center'}}></div>
 					</div>
-					<div style={{marginLeft:16,marginTop:8,fontWeight:'bold',color:'#BDBDBD'}}>nhhnguyen</div>
-					<div style={{marginLeft:16,paddingBottom:24,color:'#BDBDBD'}}>Nguyen Huu Hanh Nguyen</div>
+					<div style={{marginLeft:16,marginTop:8,fontWeight:'bold',color:'#FFF'}}>nhhnguyen</div>
+					<div style={{marginLeft:16,paddingBottom:24,color:'#FFF'}}>Nguyen Huu Hanh Nguyen</div>
 				</div>
 				<div>
 					<div onClick={this._movieSchedulerClick}>MOVIE SCHEDULER</div>

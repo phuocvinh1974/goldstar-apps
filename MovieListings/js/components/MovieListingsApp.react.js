@@ -23,11 +23,17 @@ var MovieListingsApp = React.createClass({
 			switch (this.state.uiChanged.which)
 			{
 				case 'UIDrawer':
+					var comm = {
+						mouseContext: this.state.mouseContext,
+						avatarUrl:'url(./img/avatars/cat.jpg)'
+					};
+
 					return (
 						<VelocityComponent animation={{translateX:[0,-280]}} duration={250} runOnMount={true}>
-							<UIDrawer comm={{mouseContext:this.state.mouseContext}} />
+							<UIDrawer comm={comm} />
 						</VelocityComponent>
 					);
+
 					break;
 
 				case 'UIMoreMenu':

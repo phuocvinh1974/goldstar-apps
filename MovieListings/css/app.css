@@ -101,7 +101,8 @@ button
 .navigation-drawer > div:nth-child(1) /*userinfos area*/
 {
 	margin-bottom: 16px;
-	background-color: #7B1FA2;
+	background-color: #D81B60;
+	background-image: url(../img/drawer-head.png);
 }
 
 .navigation-drawer > div:nth-child(2) > div /*menu items*/
