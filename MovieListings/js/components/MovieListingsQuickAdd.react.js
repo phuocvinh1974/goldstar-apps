@@ -24,7 +24,7 @@ var MovieListingsQuickAdd = React.createClass({
 					<option value="BOTH">BOTH</option>
 				</select>
 				<input value={this.state.ReleaseDate} onChange={this._movieReleaseDateChange} placeholder="Release Date" />
-				<button onClick={this._addNewMovie}>ADD</button>
+				<button onClick={this._movieAdd}>ADD</button>
 			</div>
 		);
 	},
@@ -44,8 +44,8 @@ var MovieListingsQuickAdd = React.createClass({
 	},
 
 	// ACTIONS
-	_addNewMovie: function () {
-		MovieListingsActions.addNewMovie(this.state);
+	_movieAdd: function () {
+		MovieListingsActions.movieAdd (this.state);
 	}
 });
 

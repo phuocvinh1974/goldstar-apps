@@ -2,20 +2,27 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 var UIConstants = require('../constants/UIConstants');
 
 var UIActions = {
-	menuShowDrawer: function () {
+	showDrawer: function (rect) {
 		AppDispatcher.dispatch({
-			actionType: UIConstants.MENU_SHOW_DRAWER
-		});
-	},
-	menuShowMore: function (rect) {
-		AppDispatcher.dispatch({
-			actionType: UIConstants.MENU_SHOW_MORE,
+			actionType: UIConstants.SHOW_DRAWER,
 			rect: rect
 		});
 	},
-	menuHideMore: function () {
+	hideDrawer: function (rect) {
 		AppDispatcher.dispatch({
-			actionType: UIConstants.MENU_HIDE_MORE
+			actionType: UIConstants.HIDE_DRAWER,
+			rect: rect
+		});
+	},
+	showMoreMenu: function (rect) {
+		AppDispatcher.dispatch({
+			actionType: UIConstants.SHOW_MORE_MENU,
+			rect: rect
+		});
+	},
+	hideMoreMenu: function () {
+		AppDispatcher.dispatch({
+			actionType: UIConstants.HIDE_MORE_MENU
 		});
 	}
 };

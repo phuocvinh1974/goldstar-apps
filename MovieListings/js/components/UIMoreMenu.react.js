@@ -10,7 +10,7 @@ var UIMoreMenu = React.createClass({
 
 	componentWillReceiveProps: function(nextProps) {
 		if(nextProps.comm.mouseContext.x < this.state.rect.left)
-			UIActions.menuHideMore()
+			UIActions.hideMoreMenu ();
 	},
 
 	getInitialState: function () {

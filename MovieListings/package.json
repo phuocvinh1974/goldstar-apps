@@ -1,29 +1,30 @@
 {
-	"name": "goldstar-apps",
+	"name": "movie-listings",
 	"version": "0.1.0",
-	"description": "Apps of GoldstarCine Company",
+	"description": "App of GoldstarCine Company",
 	
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/nguyenhuuhanhlam/goldstar-apps"
-	},
+	"repository": {},
 
 	"license": "MIT",
 
 	"dependencies": {
-		"react": "latest",
-		"react-dom": "latest",
-		"flux": "latest",
-		"object-assign": "latest",
-		"keymirror": "latest",
-		"axios": "latest"
+		"react": "^0.14.2",
+		"react-dom": "^0.14.2",
+		"flux": "^2.1.1",
+		"object-assign": "^4.0.1",
+		"keymirror": "^0.1.1",
+		"axios": "^0.7.0",
+		"react-addons-css-transition-group": "latest",
+		"velocity-react": "latest"
 	},
 
 	"devDependencies": {
-		"browserify": "latest",
-		"babelify": "latest",
+		"browserify": "^11.2.0",
+		"babelify": "^6.4.0",
 		"uglify-js": "latest"
 	},
+
+	"peerDependencies": {},
 
 	"scripts": {
 		"build": "browserify js/app.js -t babelify | uglifyjs -cm > js/bundle.min.js"

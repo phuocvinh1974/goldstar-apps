@@ -29,18 +29,23 @@ var UIStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register( function (action) {
 	switch (action.actionType)
 	{
-		case UIConstants.MENU_SHOW_DRAWER:
-			_ui = { which: UIConstants.MENU_SHOW_DRAWER }
+		case UIConstants.SHOW_DRAWER:
+			_ui = { which: 'UIDrawer', rect: action.rect }
 			UIStore.emitChange();
 		break;
 
-		case UIConstants.MENU_SHOW_MORE:
-			_ui = { which: UIConstants.MENU_SHOW_MORE, rect: action.rect }
+		case UIConstants.SHOW_MORE_MENU:
+			_ui = { which: 'UIMoreMenu', rect: action.rect }
 			UIStore.emitChange();
 		break;
 
-		case UIConstants.MENU_HIDE_MORE:
-			_ui = { which: UIConstants.MENU_HIDE_MORE }
+		case UIConstants.HIDE_DRAWER:
+			_ui = { which: null }
+			UIStore.emitChange();
+		break;
+
+		case UIConstants.HIDE_MORE_MENU:
+			_ui = { which: null }
 			UIStore.emitChange();
 		break;
 	}

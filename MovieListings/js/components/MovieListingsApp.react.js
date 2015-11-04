@@ -3,31 +3,41 @@ var React = require('react');
 var UITopbar = require('./UITopbar.react');
 var UIDrawer = require('./UIDrawer.react');
 var UIMoreMenu = require('./UIMoreMenu.react');
-var UIConstants = require('../constants/UIConstants');
 var UIStore = require('../stores/UIStore');
 
 var MovieListingsQuickAdd = require('./MovieListingsQuickAdd.react');
 var MovieListingsGrid = require('./MovieListingsGrid.react');
 var MovieListingsStore = require('../stores/MovieListingsStore');
 
+var VelocityComponent = require('velocity-react').VelocityComponent;
+
 var MovieListingsApp = React.createClass({
 	
 	whichMenu: function () {
 		if (!this.state.uiChanged) return null;
 
-		switch (this.state.uiChanged.which)
+		if (!this.state.uiChanged.which)
+			return null;
+		else
 		{
-			case 'MENU_SHOW_DRAWER':
-				return <UIDrawer comm={{mouseContext:this.state.mouseContext}} />;
-				break;
-			case 'MENU_SHOW_MORE':
-				return <UIMoreMenu config={this.state.uiChanged} comm={{mouseContext:this.state.mouseContext}} />;
-				break;
-			case 'MENU_HIDE_DRAWER':
-			case 'MENU_HIDE_MORE':
-				return null;
-			default:
-				return null;
+			var animation = {
+				translateX: 280
+			};
+
+			switch (this.state.uiChanged.which)
+			{
+				case 'UIDrawer':
+					return (
+						<VelocityComponent animation={animation} duration={250} runOnMount={true}>
+							<UIDrawer comm={{mouseContext:this.state.mouseContext,translateX:animation.translateX}} />
+						</VelocityComponent>
+					);
+					break;
+
+				case 'UIMoreMenu':
+					return <UIMoreMenu config={{rect:this.state.uiChanged.rect}} comm={{mouseContext:this.state.mouseContext}} />;
+					break;
+			}
 		}
 	},
 
