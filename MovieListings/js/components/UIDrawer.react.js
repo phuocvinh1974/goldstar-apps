@@ -8,26 +8,30 @@ var UIDrawer = React.createClass({
 		this.state.rect = ReactDOM.findDOMNode(this).getBoundingClientRect();
 	},
 
-	componentWillReceiveProps: function(nextProps) {
-		if (nextProps.comm.mouseContext.x < this.state.rect.left+nextProps.comm.translateX || nextProps.comm.mouseContext.x > this.state.rect.right+nextProps.comm.translateX)
+	componentWillReceiveProps: function(nP) {
+		if (nP.comm.mouseContext.x < this.state.rect.left || nP.comm.mouseContext.x > this.state.rect.right)
 		{
 			UIActions.hideDrawer ();
 		}
 	},
 
 	getInitialState: function () {
-		return {
-			rect: null
-		};
+		return { rect: null };
 	},
 
 	render: function () {
 
-		var baseStyle = {position:'absolute',left:-this.props.comm.translateX,top:0,width:this.props.comm.translateX,height:'100%'};
+		var baseStyle = { position:'absolute', left:0, top:0, width:280, height:'100%' };
 
 		return ( 
 			<div className="navigation-drawer" style={baseStyle}>
-				<div>...</div>
+				<div>
+					<div style={{marginLeft:16,paddingTop:40}}>
+						<div style={{width:64,height:64,borderRadius:'50%',backgroundColor:'#BDBDBD'}}></div>
+					</div>
+					<div style={{marginLeft:16,marginTop:8,fontWeight:'bold',color:'#BDBDBD'}}>nhhnguyen</div>
+					<div style={{marginLeft:16,paddingBottom:24,color:'#BDBDBD'}}>Nguyen Huu Hanh Nguyen</div>
+				</div>
 				<div>
 					<div onClick={this._movieSchedulerClick}>MOVIE SCHEDULER</div>
 					<div>MEMBER ZONE</div>

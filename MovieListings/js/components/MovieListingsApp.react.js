@@ -20,22 +20,22 @@ var MovieListingsApp = React.createClass({
 			return null;
 		else
 		{
-			var animation = {
-				translateX: 280
-			};
-
 			switch (this.state.uiChanged.which)
 			{
 				case 'UIDrawer':
 					return (
-						<VelocityComponent animation={animation} duration={250} runOnMount={true}>
-							<UIDrawer comm={{mouseContext:this.state.mouseContext,translateX:animation.translateX}} />
+						<VelocityComponent animation={{translateX:[0,-280]}} duration={250} runOnMount={true}>
+							<UIDrawer comm={{mouseContext:this.state.mouseContext}} />
 						</VelocityComponent>
 					);
 					break;
 
 				case 'UIMoreMenu':
-					return <UIMoreMenu config={{rect:this.state.uiChanged.rect}} comm={{mouseContext:this.state.mouseContext}} />;
+					return (
+						<VelocityComponent animation={{rotateY:[0,-90]}} duration={250} runOnMount={true}>
+							<UIMoreMenu config={{rect:this.state.uiChanged.rect}} comm={{mouseContext:this.state.mouseContext}} />
+						</VelocityComponent>
+					);
 					break;
 			}
 		}

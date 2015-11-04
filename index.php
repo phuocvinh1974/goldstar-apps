@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title>GoldstarCine Apps</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="default.css">
 </head>
 <body>
@@ -9,12 +10,29 @@
 		<?php
 			foreach ( glob ('./*', GLOB_ONLYDIR) as $dir )
 			{
-			    echo
-			    	'<div style="margin-bottom:3px">
-			    	<li><a href="/' . basename ($dir) . '" style=" letter-spacing:3px">' . basename ($dir) . '</a></li>
-			    	</div>';
+				if ( file_exists ($dir.'/package.json') )
+				{
+					$package = json_decode ( file_get_contents ($dir.'/package.json'), true );
+					echo '
+						<div class="menu-item">
+							<div class="item" link="/'.basename ($dir).'">' . basename ($dir) . '</div>
+							<div>' . $package['description'] . '</div>
+						</div>
+					';
+				}
 			}
 		?>
 	</div>
+	<script type="text/javascript">
+		var items = document.getElementsByClassName('item');
+
+		for (var i=0; i<items.length; i++) {
+			items[i].addEventListener('click', jumpTo, false);
+		}
+
+		function jumpTo() {
+			window.location = this.getAttribute('link');
+		}
+	</script>
 </body>
 </html>

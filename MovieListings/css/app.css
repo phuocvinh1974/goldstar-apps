@@ -95,47 +95,23 @@ button
 .navigation-drawer
 {
 	background-color: #FFF;
-	box-shadow: 8px 0 4px rgba(0,0,0,0.12), 4px 0 4px rgba(0,0,0,0.24);
-	cursor: pointer;
+	box-shadow: 8px 0 4px rgba(0,0,0,0.10), 4px 0 4px rgba(0,0,0,0.20);
 }
 
 .navigation-drawer > div:nth-child(1) /*userinfos area*/
 {
-	height: 140px;
+	margin-bottom: 16px;
 	background-color: #7B1FA2;
 }
 
 .navigation-drawer > div:nth-child(2) > div /*menu items*/
 {
 	padding: 16px;
+	cursor: pointer;
 }
 
 .navigation-drawer > div:nth-child(2) > div:hover
 {
 	padding: 16px;
 	background-color: #EEE;
-}
-
-/*---*/
-
-.example-enter
-{
-opacity: 0.01;
-}
-
-.example-enter.example-enter-active
-{
-opacity: 1;
--webkit-transition: opacity 500ms ease-in;
-}
-
-.example-leave
-{
-opacity: 1;
-}
-
-.example-leave.example-leave-active
-{
-opacity: 0.01;
--webkit-transition: opacity 300ms ease-in;
 }
