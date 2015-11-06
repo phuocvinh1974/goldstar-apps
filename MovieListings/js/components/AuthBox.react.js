@@ -28,7 +28,7 @@ var AuthBox = React.createClass({
 		return (
 			<div className="auth-box" style={baseStyle}>
 				<div style={{backgroundColor:'#B0BEC5',backgroundImage:'url(img/login-head.png)'}}>
-					<div><i className="material-icons" style={{float:'right',paddingTop:8,paddingRight:8,paddingBottom:82,color:'#FFF'}}>lock</i></div>
+					<div><i onClick={this._closeClick} className="material-icons" style={{float:'right',paddingTop:8,paddingRight:8,paddingBottom:82,color:'#FFF',cursor:'pointer'}}>close</i></div>
 					<div style={{clear:'both',paddingLeft:8,paddingBottom:8,fontSize:'16pt',color:'#FFF'}}>Sign in to your account.</div>
 				</div>
 				<div style={{padding:16}}>
@@ -54,6 +54,10 @@ var AuthBox = React.createClass({
 
 	_passwordOnChange: function (e) {
 		this.setState({ password: e.target.value, msgText: '' });
+	},
+
+	_closeClick: function () {
+		window.location = '/';
 	},
 
 	// ACTIONS EVENTS

@@ -36,6 +36,7 @@ var UIMoreMenu = React.createClass({
 
 	_logoutClick: function () {
 		AuthBoxActions.signOut ();
+		UIActions.hideMoreMenu ();
 	}
 });
 

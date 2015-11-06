@@ -29,7 +29,11 @@ function doSignIn (data) {
 		else
 		{
 			_auth.msg = { text: 'Working...', color: colorsHelper.LIGHTBLUE_500 }
-			// _auth.granted = true;
+
+			if (data.username==='admin' && data.password==='admin')
+			{
+				_auth.granted = true;
+			}
 		}
 	}
 	else
