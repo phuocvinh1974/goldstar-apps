@@ -1,5 +1,8 @@
 var React = require('react');
 
+var AuthBox = require('./AuthBox.react');
+var AuthBoxStore = require('../stores/AuthBoxStore');
+
 var UITopbar = require('./UITopbar.react');
 var UIDrawer = require('./UIDrawer.react');
 var UIMoreMenu = require('./UIMoreMenu.react');
@@ -48,25 +51,39 @@ var MovieListingsApp = React.createClass({
 	},
 
 	componentDidMount: function () {
-		UIStore.addChangeListener(this._UIonChange);
+		UIStore.addChangeListener (this._UIonChange);
+		AuthBoxStore.addChangeListener (this._authOnChange);
 	},
 
 	getInitialState: function () {
 		return {
+			auth: AuthBoxStore.getChanged(),
 			uiChanged: UIStore.getChanged(),
 			mouseContext: null
 		};
 	},
 
 	render: function () {
-		return (
-			<div className="app" onClick={this._handleClick}>
-				<UITopbar _title="MOVIE LISTINGS MANAGER" />
-				<MovieListingsQuickAdd />
-				<MovieListingsGrid />
-				{ this.whichMenu() }
-			</div>
-		);
+
+		if (!this.state.auth.granted)
+		{
+			return (
+				<VelocityComponent animation={{rotateY:[0,-90]}} duration={500} runOnMount={true}>
+					<AuthBox comm={this.state.auth} />
+				</VelocityComponent>
+			);
+		}
+		else
+		{
+			return (
+				<div className="app" onClick={this._handleClick}>
+					<UITopbar _title="MOVIE LISTINGS MANAGER" />
+					<MovieListingsQuickAdd />
+					<MovieListingsGrid />
+					{ this.whichMenu() }
+				</div>
+			);
+		}
 	},
 
 	_handleClick: function (e) {
@@ -75,6 +92,10 @@ var MovieListingsApp = React.createClass({
 
 	_UIonChange: function () {
 		this.setState({ uiChanged: UIStore.getChanged() });
+	},
+
+	_authOnChange: function () {
+		this.setState ({ auth: AuthBoxStore.getChanged() });
 	}
 });
 

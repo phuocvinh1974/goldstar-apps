@@ -1,7 +1,6 @@
 var keyMirror = require('keymirror');
 
 module.exports = keyMirror({
-	ADD_MOVIE: null,
-	UPDATE_MOVIE: null,
-	DELETE_MOVIE: null
-});
+	SIGN_IN: null,
+	SIGN_OUT: null
+}); 

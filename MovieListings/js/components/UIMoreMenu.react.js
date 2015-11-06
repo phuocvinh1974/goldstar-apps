@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var UIActions = require('../actions/UIActions');
+var AuthBoxActions = require('../actions/AuthBoxActions');
 
 var UIMoreMenu = React.createClass({
 
@@ -26,11 +27,15 @@ var UIMoreMenu = React.createClass({
 
 		return (
 			<div className="simple-menu" style={baseStyle}>
-				<div>Logout</div>
+				<div onClick={this._logoutClick}>Logout</div>
 				<div>Setting</div>
 				<div>Help</div>
 			</div>
 		);
+	},
+
+	_logoutClick: function () {
+		AuthBoxActions.signOut ();
 	}
 });
 

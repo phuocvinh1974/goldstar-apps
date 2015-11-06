@@ -36,6 +36,14 @@
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 	font-family: "RobotoCondensed-Light" !important;
+	font-size: 12pt;
+}
+
+body
+{
+	background-image: url(../img/movielistings-bg-theme.png);
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 input
@@ -69,6 +77,18 @@ button
 	cursor: pointer;
 	outline: none;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.material-input
+{
+	background-color: transparent !important;
+	box-shadow: none !important;
+	border-bottom: 1px solid #DDD;
+}
+
+.material-input:hover
+{
+	border-left: 3px solid #DDD;
 }
 
 /* MORE ICON MENU */

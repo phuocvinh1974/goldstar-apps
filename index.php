@@ -5,8 +5,8 @@
 	<link rel="stylesheet" href="default.css">
 </head>
 <body>
-	<div style="margin:12px 0 0 12px">
-		<div style="margin:0 0 12px 0">GOLDSTAR APPS FOLDER</div>
+	<div>
+		<div style="margin:12px 0 12px 12px">GOLDSTAR APPS FOLDER</div>
 		<?php
 			foreach ( glob ('./*', GLOB_ONLYDIR) as $dir )
 			{

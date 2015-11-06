@@ -1,14 +1,20 @@
 @font-face{ font-family: "RobotoCondensed-Light"; src: url("RobotoCondensed-Light.ttf"); }
 * { margin:0 0 0 0; padding:0 0 0 0; font-family:"RobotoCondensed-Light" !important; font-size: 12pt !important; }
+
 .menu-item
 {
+	padding: 0 0 0 12px;
+}
 
+.menu-item:hover
+{
+	background-color: #F5F5F5;
+	cursor: pointer;
 }
 
 .menu-item > div:nth-child(1)
 {
 	font-weight: bold;
-	cursor: pointer;
 }
 
 .menu-item > div:nth-child(2)

@@ -2,22 +2,22 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 var MovieListingsConstants = require('../constants/MovieListingsConstants');
 
 var MovieListingsActions = {
-	movieAdd: function (state) {
+	addMovie: function (state) {
 		AppDispatcher.dispatch({
-			actionType: MovieListingsConstants.MOVIE_ADD,
+			actionType: MovieListingsConstants.ADD_MOVIE,
 			data: state
 		});
 	},
-	movieUpdate: function (id,state) {
+	updateMovie: function (id,state) {
 		AppDispatcher.dispatch({
-			actionType: MovieListingsConstants.MOVIE_UPDATE,
+			actionType: MovieListingsConstants.UPDATE_MOVIE,
 			movieId: id,
 			data: state
 		});
 	},
-	movieDelete: function (id) {
+	deleteMovie: function (id) {
 		AppDispatcher.dispatch({
-			actionType: MovieListingsConstants.MOVIE_DELETE,
+			actionType: MovieListingsConstants.DELETE_MOVIE,
 			movieId: id
 		});
 	}
