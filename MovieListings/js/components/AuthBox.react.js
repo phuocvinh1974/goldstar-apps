@@ -9,7 +9,7 @@ var AuthBox = React.createClass({
 	},
 
 	getInitialState: function () {
-		return { username: null, password: null, msgColor: '#000', msgText: '' };
+		return { username: null, password: null, msgColor: '#000000', msgText: '' };
 	},
 
 	render: function () {
