@@ -3,6 +3,7 @@ var EventEmitter = require('events').EventEmitter;
 var AuthBoxConstants = require('../constants/AuthBoxConstants');
 var assign = require('object-assign');
 var colorsHelper = require('../helpers/colorsHelper');
+var axios = require('axios');
 
 var CHANGE_EVENT = 'change';
 
@@ -16,7 +17,7 @@ var _auth = {
 
 // TODOS
 
-function doSignIn (data) {
+function doSignIn (data,callback) {
 
 	var errmsg = 'Username or Password must be provided.';
 
@@ -30,16 +31,20 @@ function doSignIn (data) {
 		{
 			_auth.msg = { text: 'Working...', color: colorsHelper.LIGHTBLUE_500 }
 
-			if (data.username==='admin' && data.password==='admin')
-			{
+			axios.post('./php_modules/action_auth-signin.php',
+				{ username: data.username, password: data.password },
+			).then ( function (res) {
 				_auth.granted = true;
-			}
+				callback ();
+			});
 		}
 	}
 	else
 	{
 		_auth.msg = { text: errmsg, color: colorsHelper.RED_500 };
 	}
+
+	AuthBoxStore.emitChange ();
 }
 
 function doSignOut () {
@@ -72,16 +77,17 @@ AppDispatcher.register( function (action) {
 	{
 		case AuthBoxConstants.SIGN_IN:
 			
-			doSignIn (action.data);
+			doSignIn (action.data, function () {
+				AuthBoxStore.emitChange ();
+			});
 
-			AuthBoxStore.emitChange ();
 		break;
 
 		case AuthBoxConstants.SIGN_OUT:
 			
 			doSignOut ();
-
 			AuthBoxStore.emitChange ();
+			
 		break;
 	}
 });
