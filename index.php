@@ -15,8 +15,11 @@
 					$package = json_decode ( file_get_contents ($dir.'/package.json'), true );
 					echo '
 						<div class="menu-item">
-							<div class="item" link="/'.basename ($dir).'">' . basename ($dir) . '</div>
-							<div>' . $package['description'] . '</div>
+							<div>LOGO</div>
+							<div>
+								<div class="item" link="/'.basename ($dir).'">' . basename ($dir) . '</div>
+								<div>' . $package['description'] . '</div>
+							</div>
 						</div>
 					';
 				}

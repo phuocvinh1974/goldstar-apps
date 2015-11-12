@@ -9,7 +9,9 @@ var AuthBox = React.createClass({
 	},
 
 	getInitialState: function () {
-		return { username: null, password: null, msgColor: '#000000', msgText: '' };
+		// username: null | password: null
+		// REMEMBER: remove default value of input for user & pass
+		return { username: 'admin', password: 'password', msgColor: '#000000', msgText: '' };
 	},
 
 	render: function () {
@@ -33,10 +35,10 @@ var AuthBox = React.createClass({
 				</div>
 				<div style={{padding:16}}>
 					<div>
-						<input onChange={this._usernameOnChange} type="text" className="material-input" style={{width:'100%'}} placeholder="Enter Username" />
+						<input onChange={this._usernameOnChange} value={this.state.username} type="text" className="material-input" style={{width:'100%'}} placeholder="Enter Username" />
 					</div>
 					<div style={{marginTop:8}}>
-						<input onChange={this._passwordOnChange} type="password" className="material-input" style={{width:'100%'}} placeholder="Password" />
+						<input onChange={this._passwordOnChange} value={this.state.password} type="password" className="material-input" style={{width:'100%'}} placeholder="Password" />
 					</div>
 					<div style={{marginTop:16,marginBottom:16,height:30,color:this.state.msgColor}}>{this.state.msgText}</div>
 					<div style={{textAlign:'center',padding:'32px 0 16px 0'}}><button onClick={this._signinClick} style={{backgroundColor:'#155E77',color:'#FFF'}}>SIGN IN</button></div>

@@ -14,6 +14,7 @@ var UIActions = {
 			rect: rect
 		});
 	},
+	
 	showMoreMenu: function (rect) {
 		AppDispatcher.dispatch({
 			actionType: UIConstants.SHOW_MORE_MENU,
@@ -23,6 +24,17 @@ var UIActions = {
 	hideMoreMenu: function () {
 		AppDispatcher.dispatch({
 			actionType: UIConstants.HIDE_MORE_MENU
+		});
+	},
+
+	showQuickAddForm: function () {
+		AppDispatcher.dispatch({
+			actionType: UIConstants.SHOW_QUICKADD_FORM
+		});
+	},
+	hideQuickAddForm: function () {
+		AppDispatcher.dispatch({
+			actionType: UIConstants.HIDE_QUICKADD_FORM
 		});
 	}
 };

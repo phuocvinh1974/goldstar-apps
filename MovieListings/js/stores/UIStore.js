@@ -48,6 +48,16 @@ AppDispatcher.register( function (action) {
 			_ui = { which: null }
 			UIStore.emitChange();
 		break;
+
+		case UIConstants.SHOW_QUICKADD_FORM:
+			_ui = { whichModal: 'QuickAddForm' }
+			UIStore.emitChange();
+		break;
+
+		case UIConstants.HIDE_QUICKADD_FORM:
+			_ui = { whichModal: null }
+			UIStore.emitChange();
+		break
 	}
 });
 

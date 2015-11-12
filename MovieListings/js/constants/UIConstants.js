@@ -7,5 +7,8 @@ module.exports = keyMirror({
 	SHOW_MORE_MENU: null,
 	HIDE_MORE_MENU: null,
 	
-	SHOW_TOPBAR_QUICK_SEARCH: null
+	SHOW_TOPBAR_QUICK_SEARCH: null,
+
+	SHOW_QUICKADD_FORM: null,
+	HIDE_QUICKADD_FORM: null
 });

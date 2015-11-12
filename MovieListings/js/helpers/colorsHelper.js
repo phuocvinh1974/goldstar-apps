@@ -1,5 +1,12 @@
 module.exports = {
 	RED_500: '#F44336',
+	
 	INDIGO_500: '#3F51B5',
-	LIGHTBLUE_500: '#03A9F4'
+	
+	LIGHTBLUE_500: '#03A9F4',
+	
+	BLUE_700: '#1976D2',
+
+	PINK_100: '#F8BBD0',
+	PINK_700: '#C2185B'
 };
