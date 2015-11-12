@@ -11,7 +11,11 @@
 	}
 	catch (Exception $e)
 	{
-		$res = ['granted'=>false, 'msg'=>$e->getMessage(), 'color'=>'#FF0000'];
+		$res = [
+			'granted'=>false,
+			'msg'=>['text'=>$e->getMessage(), 'color'=>'#FF0000']
+		];
+
 		exit ( json_encode ($res) );
 	}
 
