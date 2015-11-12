@@ -16,7 +16,12 @@ var UIDrawer = React.createClass({
 	},
 
 	getInitialState: function () {
-		return { rect: null };
+		return {
+			rect: null,
+			username: this.props.comm.auth.username,
+			lastName: this.props.comm.auth.profile.lastName,
+			firstName: this.props.comm.auth.profile.firstName
+		};
 	},
 
 	render: function () {
@@ -29,8 +34,8 @@ var UIDrawer = React.createClass({
 					<div style={{marginLeft:16,paddingTop:40}}>
 						<div style={{width:64,height:64,borderRadius:'50%',backgroundColor:'#BDBDBD',backgroundImage:this.props.comm.avatarUrl,backgroundSize:'68px 68px',backgroundPosition:'center'}}></div>
 					</div>
-					<div style={{marginLeft:16,marginTop:8,fontWeight:'bold',color:'#FFF'}}>nhhnguyen</div>
-					<div style={{marginLeft:16,paddingBottom:8,color:'#FFF'}}>Nguyen Huu Hanh Nguyen</div>
+					<div style={{marginLeft:16,marginTop:8,fontWeight:'bold',color:'#FFF'}}>{this.state.username}</div>
+					<div style={{marginLeft:16,paddingBottom:8,color:'#FFF'}}>{this.state.lastName + ' ' + this.state.firstName}</div>
 				</div>
 				<div>
 					<div onClick={this._movieSchedulerClick}>MOVIE SCHEDULER</div>

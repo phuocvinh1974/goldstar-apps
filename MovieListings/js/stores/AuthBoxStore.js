@@ -32,9 +32,11 @@ function doSignIn (data,callback) {
 			_auth.msg = { text: 'Working...', color: colorsHelper.LIGHTBLUE_500 }
 
 			axios.post('./php_modules/action_auth-signin.php',
-				{ username: data.username, password: data.password },
+				{ username: data.username, password: data.password }, {responseType: 'json'}
 			).then ( function (res) {
-				_auth.granted = true;
+
+				_auth = res.data;
+
 				callback ();
 			});
 		}
@@ -48,7 +50,7 @@ function doSignIn (data,callback) {
 }
 
 function doSignOut () {
-	_auth.granted = false;
+	_auth = { granted: false, msg: {text: '', color: colorsHelper.RED_500} };
 }
 
 // *** //

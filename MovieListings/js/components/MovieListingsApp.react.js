@@ -28,6 +28,7 @@ var MovieListingsApp = React.createClass({
 				case 'UIDrawer':
 					var comm = {
 						mouseContext: this.state.mouseContext,
+						auth: this.state.auth,
 						avatarUrl:'url(./img/avatars/cat.jpg)'
 					};
 

@@ -1,28 +1,35 @@
 <?php
 
+require_once __DIR__ . '/config.php';
+
 class Database {
 	
-	private $conn = true;
+	private $conn = null;
 
-	function __construct ($engineType='mongodb') {
+	function __construct ($engineType='mongo') {
 
 		switch ($engineType)
 		{
-			case 'mongodb':
-				$this->conn = 'driver engine for mongo';
-				return $conn;
+			case 'mongo':
+				try
+				{
+					$this->conn =  new MongoClient( Config::getDSN( $engineType ) );
+				}
+				catch (Exception $e)
+				{
+					throw new Exception( $e->getMessage() );
+				}
 			break;
 
 			case 'mysql':
 				$this->conn = 'driver engine for mysql';
-				return $conn;
 			break;
 		}
 
 	}
 
 	function conn () {
-		return $conn;
+		return $this->conn;
 	}
 
 	function __destruct () {
