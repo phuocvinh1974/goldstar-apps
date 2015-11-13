@@ -30,32 +30,32 @@ AppDispatcher.register( function (action) {
 	switch (action.actionType)
 	{
 		case UIConstants.SHOW_DRAWER:
-			_ui = { which: 'UIDrawer', rect: action.rect }
+			_ui = assign({}, _ui, { whichMenu: 'UIDrawer', rect: action.rect });
 			UIStore.emitChange();
 		break;
 
 		case UIConstants.SHOW_MORE_MENU:
-			_ui = { which: 'UIMoreMenu', rect: action.rect }
+			_ui = assign({}, _ui, { whichMenu: 'UIMoreMenu', rect: action.rect });
 			UIStore.emitChange();
 		break;
 
 		case UIConstants.HIDE_DRAWER:
-			_ui = { which: null }
+			_ui = assign({}, _ui, { whichMenu: null });
 			UIStore.emitChange();
 		break;
 
 		case UIConstants.HIDE_MORE_MENU:
-			_ui = { which: null }
+			_ui = assign({}, _ui, { whichMenu: null });
 			UIStore.emitChange();
 		break;
 
 		case UIConstants.SHOW_QUICKADD_FORM:
-			_ui = { whichModal: 'QuickAddForm' }
+			_ui = assign({}, _ui, { whichModal: 'QuickAddForm' });
 			UIStore.emitChange();
 		break;
 
 		case UIConstants.HIDE_QUICKADD_FORM:
-			_ui = { whichModal: null }
+			_ui = assign(_ui, { whichModal: null });
 			UIStore.emitChange();
 		break
 	}

@@ -4,14 +4,12 @@ var UIConstants = require('../constants/UIConstants');
 var UIActions = {
 	showDrawer: function (rect) {
 		AppDispatcher.dispatch({
-			actionType: UIConstants.SHOW_DRAWER,
-			rect: rect
+			actionType: UIConstants.SHOW_DRAWER
 		});
 	},
-	hideDrawer: function (rect) {
+	hideDrawer: function () {
 		AppDispatcher.dispatch({
-			actionType: UIConstants.HIDE_DRAWER,
-			rect: rect
+			actionType: UIConstants.HIDE_DRAWER
 		});
 	},
 	
@@ -27,9 +25,10 @@ var UIActions = {
 		});
 	},
 
-	showQuickAddForm: function () {
+	showQuickAddForm: function (rect) {
 		AppDispatcher.dispatch({
-			actionType: UIConstants.SHOW_QUICKADD_FORM
+			actionType: UIConstants.SHOW_QUICKADD_FORM,
+			rect: rect
 		});
 	},
 	hideQuickAddForm: function () {

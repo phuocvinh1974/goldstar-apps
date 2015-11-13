@@ -145,7 +145,12 @@ button
 	background-color: #EEE;
 }
 
-.movie-listings-grid
+.movies-grid
 {
 	padding: 10px 0 0 54px;
+}
+
+.quickadd-form
+{
+	position: absolute;
 }

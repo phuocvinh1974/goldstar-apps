@@ -4,6 +4,8 @@
 .menu-item
 {
 	padding: 0 0 0 12px;
+	display: -webkit-flex;
+	-webkit-align-items: center;
 }
 
 .menu-item:hover
@@ -12,12 +14,12 @@
 	cursor: pointer;
 }
 
-.menu-item > div:nth-child(1)
+.menu-item > div:nth-child(2) > div:nth-child(1)
 {
 	font-weight: bold;
 }
 
-.menu-item > div:nth-child(2)
+.menu-item > div:nth-child(2) > div:nth-child(2)
 {
 	color: #BDBDBD
 }

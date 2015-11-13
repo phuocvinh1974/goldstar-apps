@@ -2,7 +2,7 @@ var React = require('react');
 var MovieListingsActions = require('../actions/MovieListingsActions');
 var datetimeHelper = require('../helpers/datetimeHelper');
 
-var MovieListingsQuickAdd = React.createClass({
+var QuickAddForm = React.createClass({
 
 	getInitialState: function () {
 		return {
@@ -12,8 +12,13 @@ var MovieListingsQuickAdd = React.createClass({
 	},
 
 	render: function () {
+
+		var baseStyle = {
+			position: 'absolute'
+		};
+
 		return (
-			<div className="quickadd-form">
+			<div className="quickadd-form" style={baseStyle}>
 				<input value={this.state.shortTitle} onChange={this._movieShortTitleChange} placeholder="Movie Short Title" />
 				<input value={this.state.IntTitle} onChange={this._movieIntTitleChange} placeholder="International Title" />
 				<input placeholder="Title" />
@@ -49,4 +54,4 @@ var MovieListingsQuickAdd = React.createClass({
 	}
 });
 
-module.exports = MovieListingsQuickAdd;
+module.exports = QuickAddForm;

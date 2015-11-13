@@ -17,17 +17,34 @@ var VelocityComponent = require('velocity-react').VelocityComponent;
 var MovieListingsApp = React.createClass({
 
 	whichModal: function () {
-		console.log('modal show')
+		if (!this.state.uiChanged) return null;
+
+		if (!this.state.uiChanged.whichModal)
+		{
+			return null;
+		}
+		else
+		{
+			switch (this.state.uiChanged.whichModal)
+			{
+				case 'QuickAddForm':
+					return <QuickAddForm />
+				break;
+
+				default:
+					return null;
+			}
+		}
 	},
 	
 	whichMenu: function () {
 		if (!this.state.uiChanged) return null;
 
-		if (!this.state.uiChanged.which)
+		if (!this.state.uiChanged.whichMenu)
 			return null;
 		else
 		{
-			switch (this.state.uiChanged.which)
+			switch (this.state.uiChanged.whichMenu)
 			{
 				case 'UIDrawer':
 					var comm = {
