@@ -87,11 +87,17 @@ button
 	bottom: 0;
 }
 
+.material-icons
+{
+	cursor: pointer;
+}
+
 .material-input
 {
 	background-color: transparent !important;
 	box-shadow: none !important;
 	border-bottom: 1px solid #DDD;
+	width: 100%;
 }
 
 .material-input:hover
@@ -145,12 +151,50 @@ button
 	background-color: #EEE;
 }
 
-.movies-grid
+/* MOVIEGRID COMPONENT */
+
+.movie-grid
 {
-	padding: 10px 0 0 54px;
+	display: -webkit-flex;
+	margin-top: 16px;
 }
 
-.quickadd-form
+.movie-grid > div:nth-child(1) > i
 {
-	position: absolute;
+	padding-left: 10px;
+	color: #FFF;
+	cursor: pointer;
+}
+
+.movie-grid > div:nth-child(2), .movie-grid > div:nth-child(3)
+{
+	margin-left: 20px;
+}
+
+/* MOVIE EDITOR */
+
+.movie-editor
+{
+	width: 240px; height: 420px;
+	background-color: #FFF;
+	padding: 8px;
+}
+
+.movie-editor-head
+{
+	display: -webkit-flex;
+	background-color: #F0F0F0;
+}
+
+.movie-editor-inputs
+{
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding: 0 16px 0 0;
+	margin: 8px 0 8px 0;
+}
+
+.movie-editor-inputs > div
+{
+	margin-top: 8px;
 }

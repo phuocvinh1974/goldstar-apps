@@ -8,34 +8,12 @@ var UIDrawer = require('./UIDrawer.react');
 var UIMoreMenu = require('./UIMoreMenu.react');
 var UIStore = require('../stores/UIStore');
 
-var QuickAddForm = require('./QuickAddForm.react');
-var MoviesGrid = require('./MoviesGrid.react');
+var MovieGrid = require('./MovieGrid.react');
 var MovieListingsStore = require('../stores/MovieListingsStore');
 
 var VelocityComponent = require('velocity-react').VelocityComponent;
 
 var MovieListingsApp = React.createClass({
-
-	whichModal: function () {
-		if (!this.state.uiChanged) return null;
-
-		if (!this.state.uiChanged.whichModal)
-		{
-			return null;
-		}
-		else
-		{
-			switch (this.state.uiChanged.whichModal)
-			{
-				case 'QuickAddForm':
-					return <QuickAddForm />
-				break;
-
-				default:
-					return null;
-			}
-		}
-	},
 	
 	whichMenu: function () {
 		if (!this.state.uiChanged) return null;
@@ -100,9 +78,8 @@ var MovieListingsApp = React.createClass({
 			return (
 				<div className="app" onClick={this._handleClick}>
 					<UITopbar _title="MOVIE LISTINGS MANAGER" />
-					<MoviesGrid />
+					<MovieGrid />
 					{ this.whichMenu () }
-					{ this.whichModal () }
 				</div>
 			);
 		}

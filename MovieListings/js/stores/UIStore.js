@@ -34,13 +34,13 @@ AppDispatcher.register( function (action) {
 			UIStore.emitChange();
 		break;
 
-		case UIConstants.SHOW_MORE_MENU:
-			_ui = assign({}, _ui, { whichMenu: 'UIMoreMenu', rect: action.rect });
+		case UIConstants.HIDE_DRAWER:
+			_ui = assign({}, _ui, { whichMenu: null });
 			UIStore.emitChange();
 		break;
 
-		case UIConstants.HIDE_DRAWER:
-			_ui = assign({}, _ui, { whichMenu: null });
+		case UIConstants.SHOW_MORE_MENU:
+			_ui = assign({}, _ui, { whichMenu: 'UIMoreMenu', rect: action.rect });
 			UIStore.emitChange();
 		break;
 
@@ -48,16 +48,6 @@ AppDispatcher.register( function (action) {
 			_ui = assign({}, _ui, { whichMenu: null });
 			UIStore.emitChange();
 		break;
-
-		case UIConstants.SHOW_QUICKADD_FORM:
-			_ui = assign({}, _ui, { whichModal: 'QuickAddForm' });
-			UIStore.emitChange();
-		break;
-
-		case UIConstants.HIDE_QUICKADD_FORM:
-			_ui = assign(_ui, { whichModal: null });
-			UIStore.emitChange();
-		break
 	}
 });
 
