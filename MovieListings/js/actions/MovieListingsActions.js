@@ -20,6 +20,11 @@ var MovieListingsActions = {
 			actionType: MovieListingsConstants.DELETE_MOVIE,
 			movieId: id
 		});
+	},
+	listMovies: function () {
+		AppDispatcher.dispatch({
+			actionType: MovieListingsConstants.LIST_MOVIES
+		});
 	}
 };
 

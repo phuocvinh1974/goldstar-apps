@@ -183,6 +183,7 @@ button
 .movie-editor-head
 {
 	display: -webkit-flex;
+	-webkit-justify-content: flex-end;
 	background-color: #F0F0F0;
 }
 

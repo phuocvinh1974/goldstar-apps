@@ -4,6 +4,13 @@ var datetimeHelper = require('../helpers/datetimeHelper');
 
 var MovieEditor = React.createClass({
 
+	formValidation: function () {
+
+		if (this.state.shortTitle === '' || this.state.shortTitle === null) return false;
+
+		return true;
+	},
+
 	getInitialState: function () {
 		return {
 			shortTitle: null, IntTitle: null, Title: null,
@@ -30,28 +37,29 @@ var MovieEditor = React.createClass({
 					</div>
 					<div><input value={this.state.ReleaseDate} onChange={this._movieReleaseDateChange} className="material-input" placeholder="Release Date" /></div>
 				</div>
-				<div style={{marginTop:24}}><button onClick={this._movieAdd}>ADD</button></div>
+				<div><button onClick={this._movieAdd}>ADD</button></div>
 			</div>
 		);
 	},
 
 	// SELF EVENTS
 	_movieShortTitleChange: function (e) {
-		// this.setState({ shortTitle: e.target.value });
+		this.setState({ shortTitle: e.target.value.trim() });
 	},
 	_movieIntTitleChange: function (e) {
-		// this.setState({ IntTitle: e.target.value });
+		this.setState({ IntTitle: e.target.value });
 	},
 	_movieFormatChange: function (e) {
-		// this.setState({ mediaFormat: e.target.value });
+		this.setState({ mediaFormat: e.target.value });
 	},
 	_movieReleaseDateChange: function (e) {
-		// this.setState({ ReleaseDate: datetimeHelper.dateMaskedInput(e.target.value) });
+		this.setState({ ReleaseDate: datetimeHelper.dateMaskedInput(e.target.value) });
 	},
 
 	// ACTIONS
 	_movieAdd: function () {
-		MovieListingsActions.addMovie (this.state);
+		if (this.formValidation())
+			MovieListingsActions.addMovie (this.state);
 	}
 });
 
