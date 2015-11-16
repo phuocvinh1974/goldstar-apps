@@ -22,34 +22,46 @@ var MovieGrid = React.createClass({
 		}
 	},
 
-	componentWillMount: function () {
+	componentDidMount: function () {
 		MovieListingsActions.listMovies ();
+	},
+
+	// componentWillReceiveProps: function (nP) {
+	// 	if (this.props.listOfMovies!==nP.listOfMovies)
+	// 	{
+	// 		this.setState({ movies: nP.listOfMovies })
+	// 	} 
+	// },
+
+	shouldComponentUpdate: function (nP,nS) {
+		return nP.listOfMovies !== this.props.listOfMovies || nS.showMovieEditor !== this.state.showMovieEditor;
 	},
 
 	getInitialState: function () {
 		return {
-			showMovieEditor: false,
-			movies: []
+			showMovieEditor: false
 		}
 	},
 
 	render: function () {
+
+		console.log ('render::MovieGrid')
+	
+		var movies = this.props.listOfMovies.map( function (movie) {
+			return <div key={movie._id}>{movie.shortTitle}</div>;
+		});
+
 		return (
 			<div className="movie-grid">
 				<div><i onClick={this._showMovieEditor} className="material-icons">add_circle</i></div>
 				{ this.animationMovieEditor () }
-				<div>
-				{
-					this.state.movies.map(function () {
-						return 0;
-					})
-				}
-				</div>
+				<div>{ movies }</div>
 			</div>
 		);
 	},
 
 	// CALLBACK
+
 	_closeEditor: function () {
 		this.setState({ showMovieEditor: false });
 	},

@@ -44,7 +44,7 @@ var MovieEditor = React.createClass({
 
 	// SELF EVENTS
 	_movieShortTitleChange: function (e) {
-		this.setState({ shortTitle: e.target.value.trim() });
+		this.setState({ shortTitle: e.target.value.toUpperCase().trim() });
 	},
 	_movieIntTitleChange: function (e) {
 		this.setState({ IntTitle: e.target.value });
@@ -58,8 +58,9 @@ var MovieEditor = React.createClass({
 
 	// ACTIONS
 	_movieAdd: function () {
-		if (this.formValidation())
+		if (this.formValidation()) {
 			MovieListingsActions.addMovie (this.state);
+		}
 	}
 });
 

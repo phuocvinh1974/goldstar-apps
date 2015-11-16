@@ -16,6 +16,8 @@ var AuthBox = React.createClass({
 
 	render: function () {
 
+		console.log ('render::AuthBox')
+
 		var fixWidth = 326;
 		var fixHeight = 448;
 

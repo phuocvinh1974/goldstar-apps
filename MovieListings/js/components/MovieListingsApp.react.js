@@ -1,17 +1,15 @@
 var React = require('react');
+var VelocityComponent = require('velocity-react').VelocityComponent;
 
 var AuthBox = require('./AuthBox.react');
-var AuthBoxStore = require('../stores/AuthBoxStore');
-
 var UITopbar = require('./UITopbar.react');
 var UIDrawer = require('./UIDrawer.react');
 var UIMoreMenu = require('./UIMoreMenu.react');
-var UIStore = require('../stores/UIStore');
-
 var MovieGrid = require('./MovieGrid.react');
-var MovieListingsStore = require('../stores/MovieListingsStore');
 
-var VelocityComponent = require('velocity-react').VelocityComponent;
+var AuthBoxStore = require('../stores/AuthBoxStore');
+var UIStore = require('../stores/UIStore');
+var MovieListingsStore = require('../stores/MovieListingsStore');
 
 var MovieListingsApp = React.createClass({
 	
@@ -51,14 +49,16 @@ var MovieListingsApp = React.createClass({
 	},
 
 	componentDidMount: function () {
-		UIStore.addChangeListener (this._UIonChange);
 		AuthBoxStore.addChangeListener (this._authOnChange);
+		UIStore.addChangeListener (this._uiOnChange);
+		MovieListingsStore.addChangeListener(this._movielistingsOnChange);
 	},
 
 	getInitialState: function () {
 		return {
 			auth: AuthBoxStore.getChanged(),
 			uiChanged: UIStore.getChanged(),
+			movieListings: MovieListingsStore.getChanged(),
 			mouseContext: null
 		};
 	},
@@ -78,7 +78,7 @@ var MovieListingsApp = React.createClass({
 			return (
 				<div className="app" onClick={this._handleClick}>
 					<UITopbar _title="MOVIE LISTINGS MANAGER" />
-					<MovieGrid />
+					<MovieGrid listOfMovies={this.state.movieListings.movies} />
 					{ this.whichMenu () }
 				</div>
 			);
@@ -89,8 +89,12 @@ var MovieListingsApp = React.createClass({
 		this.setState ({ mouseContext: { x: e.clientX, y: e.clientY } });
 	},
 
-	_UIonChange: function () {
-		this.setState({ uiChanged: UIStore.getChanged() });
+	_uiOnChange: function () {
+		this.setState ({ uiChanged: UIStore.getChanged() });
+	},
+
+	_movielistingsOnChange: function () {
+		this.setState ({ movieListings: MovieListingsStore.getChanged() });
 	},
 
 	_authOnChange: function () {

@@ -24,7 +24,9 @@ function listMovies (callback) {
 	});
 }
 
-var _movielistings = {};
+var CHANGE_EVENT = 'change';
+
+var _movielistings = {movies: []};
 
 var MovieListingsStore = assign({}, EventEmitter.prototype, {
 
@@ -49,10 +51,16 @@ AppDispatcher.register( function (payload) {
 	switch (payload.actionType)
 	{
 		case MovieListingsConstants.ADD_MOVIE:
+
+			console.log ('ADD_MOVIE')
+
 			addMovie (payload.data, function(res) {
 				if (res.success)
 				{
-					console.log ('movie added!');
+					listMovies (function (res) {
+						_movielistings = { movies: res };
+						MovieListingsStore.emitChange ();
+					});
 				}
 			});
 		break;
@@ -66,7 +74,13 @@ AppDispatcher.register( function (payload) {
 		break;
 
 		case MovieListingsConstants.LIST_MOVIES:
-			listMovies ();
+			
+			console.log ('LIST_MOVIES')
+
+			listMovies (function (res) {
+				_movielistings = { movies: res };
+				MovieListingsStore.emitChange ();
+			});
 		break;
 	}
 });
