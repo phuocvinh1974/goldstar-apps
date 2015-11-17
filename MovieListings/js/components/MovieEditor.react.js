@@ -14,7 +14,7 @@ var MovieEditor = React.createClass({
 	getInitialState: function () {
 		return {
 			shortTitle: null, IntTitle: null, Title: null,
-			Runtime: null, mediaFormat: null, ReleaseDate: null
+			Runtime: null, mediaFormat: '2D', ReleaseDate: null
 		}
 	},
 
@@ -37,7 +37,7 @@ var MovieEditor = React.createClass({
 					</div>
 					<div><input value={this.state.ReleaseDate} onChange={this._movieReleaseDateChange} className="material-input" placeholder="Release Date" /></div>
 				</div>
-				<div><button onClick={this._movieAdd}>ADD</button></div>
+				<div className="movie-editor-buttons"><button onClick={this._movieAdd}>ADD</button></div>
 			</div>
 		);
 	},

@@ -20,6 +20,8 @@
 
 	// TODO
 
+	// date_default_timezone_set('Asia/Ho_Chi_Minh');
+
 	$nextMovieId = $mongo->goldstarDB->__counters->findAndModify(
  	['_id'=>'movieId'],
  	['$inc'=>['seq'=>1]],
@@ -28,7 +30,10 @@
 
 	$mongo->goldstarDB->movies->insert([
 		'_id'=>$nextMovieId['seq'],
-		'shortTitle'=>$request->shortTitle
+		'shortTitle'=>$request->shortTitle,
+		'IntTitle'=>$request->IntTitle,
+		'mediaFormat'=>$request->mediaFormat,
+		'ReleaseDate'=>new MongoDate(strtotime($request->ReleaseDate . 'T00:00:00.000Z'))
 	]);
 
 	echo json_encode(['success'=>true]);

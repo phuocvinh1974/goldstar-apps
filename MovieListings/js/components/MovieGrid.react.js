@@ -48,14 +48,29 @@ var MovieGrid = React.createClass({
 		console.log ('render::MovieGrid')
 	
 		var movies = this.props.listOfMovies.map( function (movie) {
-			return <div key={movie._id}>{movie.shortTitle}</div>;
+			return (
+				<div key={movie._id} className="movie-grid-item">
+					<div style={{width:120}}>{movie.shortTitle}</div>
+					<div style={{width:200}}>{movie.IntTitle}</div>
+					<div style={{width:80}}>{movie.mediaFormat}</div>
+					<div style={{width:100}}>{movie.ReleaseDate.sec}</div>
+				</div>
+			);
 		});
 
 		return (
 			<div className="movie-grid">
 				<div><i onClick={this._showMovieEditor} className="material-icons">add_circle</i></div>
 				{ this.animationMovieEditor () }
-				<div>{ movies }</div>
+				<div className="movie-grid-items">
+					<div className="movie-grid-items-head">
+						<div style={{width:120}}>SHORT TITLE</div>
+						<div style={{width:200}}>INTERNATIONAL TITLE</div>
+						<div style={{width:80}}>FORMAT</div>
+						<div style={{width:100}}>RELEASE DATE</div>
+					</div>
+					{ movies }
+				</div>
 			</div>
 		);
 	},

@@ -171,13 +171,37 @@ button
 	margin-left: 20px;
 }
 
+.movie-grid-items
+{
+	background-color: #FFF;
+	padding: 8px;
+	box-shadow: 0px 0px 15px rgba(0,0,0,0.35);
+}
+
+.movie-grid-items-head
+{
+	display: -webkit-flex;
+	color: #C2185B;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+
+.movie-grid-item
+{
+	display: -webkit-flex;
+	border-top: 1px dotted #F0F0F0;
+	height: 32px;
+	line-height: 32px;
+}
+
 /* MOVIE EDITOR */
 
 .movie-editor
 {
-	width: 240px; height: 420px;
+	width: 240px; height: 520px;
 	background-color: #FFF;
 	padding: 8px;
+	box-shadow: 0px 0px 15px rgba(0,0,0,0.35)
 }
 
 .movie-editor-head
@@ -198,4 +222,11 @@ button
 .movie-editor-inputs > div
 {
 	margin-top: 8px;
+}
+
+.movie-editor-buttons
+{
+	display: -webkit-flex;
+	-webkit-justify-content: flex-end;
+	margin-top: 24px;
 }

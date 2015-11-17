@@ -52,8 +52,6 @@ AppDispatcher.register( function (payload) {
 	{
 		case MovieListingsConstants.ADD_MOVIE:
 
-			console.log ('ADD_MOVIE')
-
 			addMovie (payload.data, function(res) {
 				if (res.success)
 				{
@@ -63,6 +61,7 @@ AppDispatcher.register( function (payload) {
 					});
 				}
 			});
+
 		break;
 
 		case MovieListingsConstants.UPDATE_MOVIE:
@@ -75,12 +74,11 @@ AppDispatcher.register( function (payload) {
 
 		case MovieListingsConstants.LIST_MOVIES:
 			
-			console.log ('LIST_MOVIES')
-
 			listMovies (function (res) {
 				_movielistings = { movies: res };
 				MovieListingsStore.emitChange ();
 			});
+
 		break;
 	}
 });
