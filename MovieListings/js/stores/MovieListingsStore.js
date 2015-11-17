@@ -56,7 +56,7 @@ AppDispatcher.register( function (payload) {
 				if (res.success)
 				{
 					listMovies (function (res) {
-						_movielistings = { movies: res };
+						_movielistings = { movies: res, editorReset: new Date().getTime() };
 						MovieListingsStore.emitChange ();
 					});
 				}

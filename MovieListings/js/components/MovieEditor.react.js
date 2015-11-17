@@ -11,6 +11,11 @@ var MovieEditor = React.createClass({
 		return true;
 	},
 
+	componentWillReceiveProps: function (nP) {
+		if (nP.comm.actions.reset!==this.props.comm.actions.reset)
+			this.replaceState(this.getInitialState())
+	},
+
 	getInitialState: function () {
 		return {
 			shortTitle: null, IntTitle: null, Title: null,
@@ -20,13 +25,15 @@ var MovieEditor = React.createClass({
 
 	render: function () {
 
+		console.log('render::editor')
+
 		return (
 			<div className="movie-editor">
 				<div style={{height:120}} className="movie-editor-head"><i onClick={this.props.comm.actions.closeEditor} className="material-icons">close</i></div>
 				<div className="movie-editor-inputs">
-					<div><input value={this.state.shortTitle} onChange={this._movieShortTitleChange} className="material-input" placeholder="Movie Short Title" /></div>
-					<div><input value={this.state.IntTitle} onChange={this._movieIntTitleChange} className="material-input" placeholder="International Title" /></div>
-					<div><input className="material-input" placeholder="Title" /></div>
+					<div><input value={this.state.shortTitle} onChange={this._shortTitleOnChange} className="material-input" placeholder="Movie Short Title" /></div>
+					<div><input value={this.state.IntTitle} onChange={this._inttitleOnChange} className="material-input" placeholder="International Title" /></div>
+					<div><input value={this.state.Title} onChange={this._titleOnChange} className="material-input" placeholder="Title" /></div>
 					<div><input className="material-input" placeholder="Runtime (minutes)" /></div>
 					<div>
 						<select onChange={this._movieFormatChange} className="material-input">
@@ -43,11 +50,14 @@ var MovieEditor = React.createClass({
 	},
 
 	// SELF EVENTS
-	_movieShortTitleChange: function (e) {
+	_shortTitleOnChange: function (e) {
 		this.setState({ shortTitle: e.target.value.toUpperCase().trim() });
 	},
-	_movieIntTitleChange: function (e) {
+	_inttitleOnChange: function (e) {
 		this.setState({ IntTitle: e.target.value });
+	},
+	_titleOnChange: function (e) {
+		this.setState({ Title: e.target.value });
 	},
 	_movieFormatChange: function (e) {
 		this.setState({ mediaFormat: e.target.value });

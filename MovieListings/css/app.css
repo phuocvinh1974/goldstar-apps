@@ -230,3 +230,8 @@ button
 	-webkit-justify-content: flex-end;
 	margin-top: 24px;
 }
+
+.icon-edit{width:24px;height:24px;text-align:center;color:#CCC;font-weight:bold;cursor:pointer;border-radius:50%;background-color:#F0F0F0;}
+.icon-edit:hover{background-color:#90CAF9;color:#FFF;}
+.icon-remove{width:32px;height:32px;text-align:center;color:#CCC;font-weight:bold;cursor:pointer;border-radius:50%;background-color:#F0F0F0;}
+.icon-remove:hover{background-color:#C2185B;color:#FFF;}

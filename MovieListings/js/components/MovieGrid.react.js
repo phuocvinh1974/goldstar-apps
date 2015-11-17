@@ -12,7 +12,7 @@ var MovieGrid = React.createClass({
 		{
 			return (
 				<VelocityComponent animation={{rotateY:[0,-90]}} duration={500} runOnMount={true}>
-					<MovieEditor comm={{ actions: { closeEditor: this._closeEditor } }} />
+					<MovieEditor updateMode={this.state.updateMode} comm={{ actions: { closeEditor: this._closeEditor, reset: this.props.comm } }} />
 				</VelocityComponent>
 			);
 		}
@@ -26,37 +26,30 @@ var MovieGrid = React.createClass({
 		MovieListingsActions.listMovies ();
 	},
 
-	// componentWillReceiveProps: function (nP) {
-	// 	if (this.props.listOfMovies!==nP.listOfMovies)
-	// 	{
-	// 		this.setState({ movies: nP.listOfMovies })
-	// 	} 
-	// },
-
 	shouldComponentUpdate: function (nP,nS) {
-		return nP.listOfMovies !== this.props.listOfMovies || nS.showMovieEditor !== this.state.showMovieEditor;
+		return nP.listOfMovies !== this.props.listOfMovies || nS.showMovieEditor !== this.state.showMovieEditor || nS.updateMode !== this.state.updateMode;
 	},
 
 	getInitialState: function () {
 		return {
-			showMovieEditor: false
+			showMovieEditor: false, updateMode: false,
+			previousSelected: null
 		}
 	},
 
 	render: function () {
-
-		console.log ('render::MovieGrid')
 	
 		var movies = this.props.listOfMovies.map( function (movie) {
 			return (
-				<div key={movie._id} className="movie-grid-item">
-					<div style={{width:120}}>{movie.shortTitle}</div>
+				<div key={movie._id} onClick={this._showMovieEditorForUpdate} className="movie-grid-item">
+					<div style={{width:100}}>{movie.shortTitle}</div>
 					<div style={{width:200}}>{movie.IntTitle}</div>
+					<div style={{width:200}}>{movie.Title}</div>
 					<div style={{width:80}}>{movie.mediaFormat}</div>
-					<div style={{width:100}}>{movie.ReleaseDate.sec}</div>
+					<div style={{width:100}}>{movie.ReleaseDate}</div>
 				</div>
 			);
-		});
+		}.bind (this));
 
 		return (
 			<div className="movie-grid">
@@ -64,8 +57,9 @@ var MovieGrid = React.createClass({
 				{ this.animationMovieEditor () }
 				<div className="movie-grid-items">
 					<div className="movie-grid-items-head">
-						<div style={{width:120}}>SHORT TITLE</div>
-						<div style={{width:200}}>INTERNATIONAL TITLE</div>
+						<div style={{width:100}}>SHORT</div>
+						<div style={{width:200}}>INT. TITLE</div>
+						<div style={{width:200}}>TITLE</div>
 						<div style={{width:80}}>FORMAT</div>
 						<div style={{width:100}}>RELEASE DATE</div>
 					</div>
@@ -83,8 +77,31 @@ var MovieGrid = React.createClass({
 
 	// SELF EVENTS
 
+	_showMovieEditorForUpdate: function (e) {
+
+		if (this.state.previousSelected)
+			this.state.previousSelected.style.backgroundColor = '';
+		
+		e.target.parentNode.style.backgroundColor = '#F0F0F0';
+
+		if (e.target.parentNode===this.state.previousSelected)
+		{
+			e.target.parentNode.style.backgroundColor = '';
+			this.state.previousSelected = null;
+			this.setState({updateMode: false})
+		}
+		else
+		{
+			this.state.previousSelected = e.target.parentNode;
+			this.setState({updateMode: true})
+		}
+
+		this._showMovieEditor ();
+	},
+
 	_showMovieEditor: function () {
-		this.setState({ showMovieEditor: true });
+		if (!this.state.showMovieEditor)
+			this.setState({ showMovieEditor: true });
 	}
 });
 

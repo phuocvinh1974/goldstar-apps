@@ -78,7 +78,7 @@ var MovieListingsApp = React.createClass({
 			return (
 				<div className="app" onClick={this._handleClick}>
 					<UITopbar _title="MOVIE LISTINGS MANAGER" />
-					<MovieGrid listOfMovies={this.state.movieListings.movies} />
+					<MovieGrid listOfMovies={this.state.movieListings.movies} comm={this.state.movieListings.editorReset} />
 					{ this.whichMenu () }
 				</div>
 			);

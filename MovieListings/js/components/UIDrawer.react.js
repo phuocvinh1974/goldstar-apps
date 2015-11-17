@@ -31,8 +31,8 @@ var UIDrawer = React.createClass({
 		return ( 
 			<div className="navigation-drawer" style={baseStyle}>
 				<div>
-					<div style={{marginLeft:16,paddingTop:40}}>
-						<div style={{width:64,height:64,borderRadius:'50%',backgroundColor:'#BDBDBD',backgroundImage:this.props.comm.avatarUrl,backgroundSize:'68px 68px',backgroundPosition:'center'}}></div>
+					<div style={{marginLeft:16,paddingTop:32}}>
+						<div style={{width:68,height:68,backgroundColor:'#BDBDBD',backgroundImage:this.props.comm.avatarUrl,backgroundSize:'68px 68px',backgroundPosition:'center'}}></div>
 					</div>
 					<div style={{marginLeft:16,marginTop:8,fontWeight:'bold',color:'#FFF'}}>{this.state.username}</div>
 					<div style={{marginLeft:16,paddingBottom:8,color:'#FFF'}}>{this.state.lastName + ' ' + this.state.firstName}</div>

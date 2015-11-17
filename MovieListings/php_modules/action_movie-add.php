@@ -32,6 +32,7 @@
 		'_id'=>$nextMovieId['seq'],
 		'shortTitle'=>$request->shortTitle,
 		'IntTitle'=>$request->IntTitle,
+		'Title'=>$request->Title,
 		'mediaFormat'=>$request->mediaFormat,
 		'ReleaseDate'=>new MongoDate(strtotime($request->ReleaseDate . 'T00:00:00.000Z'))
 	]);

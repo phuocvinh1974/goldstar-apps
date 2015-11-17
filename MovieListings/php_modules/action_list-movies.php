@@ -27,8 +27,9 @@
 			'_id'=>$item['_id'],
 			'shortTitle'=>$item['shortTitle'],
 			'IntTitle'=>isset($item['IntTitle']) ? $item['IntTitle'] : null,
+			'Title'=>isset($item['Title']) ? $item['Title'] : null,
 			'mediaFormat'=>isset($item['mediaFormat']) ? $item['mediaFormat'] : null,
-			'ReleaseDate'=>isset($item['ReleaseDate']) ? $item['ReleaseDate'] : null
+			'ReleaseDate'=>isset($item['ReleaseDate']) ? date('d-m-Y', $item['ReleaseDate']->sec) : null
 		];
 	}
 
