@@ -25,7 +25,24 @@ var MovieEditor = React.createClass({
 
 	render: function () {
 
-		console.log('render::editor')
+		var buttons = null;
+
+		if (this.props.updateMode)
+		{
+			buttons = (
+				<div className="movie-editor-buttons">
+					<button>DELETE</button><button>UPDATE</button>
+				</div>
+			);
+		}
+		else
+		{
+			buttons = (
+				<div className="movie-editor-buttons">
+					<button onClick={this._movieAdd}>ADD</button>
+				</div>
+			);
+		}
 
 		return (
 			<div className="movie-editor">
@@ -34,7 +51,7 @@ var MovieEditor = React.createClass({
 					<div><input value={this.state.shortTitle} onChange={this._shortTitleOnChange} className="material-input" placeholder="Movie Short Title" /></div>
 					<div><input value={this.state.IntTitle} onChange={this._inttitleOnChange} className="material-input" placeholder="International Title" /></div>
 					<div><input value={this.state.Title} onChange={this._titleOnChange} className="material-input" placeholder="Title" /></div>
-					<div><input className="material-input" placeholder="Runtime (minutes)" /></div>
+					<div><input value={this.state.Runtime} onChange={this._runtimeOnChange} className="material-input" placeholder="Runtime (minutes)" /></div>
 					<div>
 						<select onChange={this._movieFormatChange} className="material-input">
 							<option value="2D">2D</option>
@@ -44,7 +61,7 @@ var MovieEditor = React.createClass({
 					</div>
 					<div><input value={this.state.ReleaseDate} onChange={this._movieReleaseDateChange} className="material-input" placeholder="Release Date" /></div>
 				</div>
-				<div className="movie-editor-buttons"><button onClick={this._movieAdd}>ADD</button></div>
+				{ buttons }
 			</div>
 		);
 	},
@@ -58,6 +75,9 @@ var MovieEditor = React.createClass({
 	},
 	_titleOnChange: function (e) {
 		this.setState({ Title: e.target.value });
+	},
+	_runtimeOnChange: function (e) {
+		this.setState({Runtime: e.target.value});
 	},
 	_movieFormatChange: function (e) {
 		this.setState({ mediaFormat: e.target.value });

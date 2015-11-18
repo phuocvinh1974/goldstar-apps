@@ -80,6 +80,10 @@ AppDispatcher.register( function (payload) {
 			});
 
 		break;
+
+		case MovieListingsConstants.GET_MOVIE_INFOS:
+			console.log ('do some info')
+		break;
 	}
 });
 

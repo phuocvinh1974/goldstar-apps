@@ -176,6 +176,7 @@ button
 	background-color: #FFF;
 	padding: 8px;
 	box-shadow: 0px 0px 15px rgba(0,0,0,0.35);
+	cursor: default;
 }
 
 .movie-grid-items-head
@@ -231,7 +232,4 @@ button
 	margin-top: 24px;
 }
 
-.icon-edit{width:24px;height:24px;text-align:center;color:#CCC;font-weight:bold;cursor:pointer;border-radius:50%;background-color:#F0F0F0;}
-.icon-edit:hover{background-color:#90CAF9;color:#FFF;}
-.icon-remove{width:32px;height:32px;text-align:center;color:#CCC;font-weight:bold;cursor:pointer;border-radius:50%;background-color:#F0F0F0;}
-.icon-remove:hover{background-color:#C2185B;color:#FFF;}
+.movie-editor-buttons > button {margin-left: 8px;}

@@ -41,7 +41,7 @@ var MovieGrid = React.createClass({
 	
 		var movies = this.props.listOfMovies.map( function (movie) {
 			return (
-				<div key={movie._id} onClick={this._showMovieEditorForUpdate} className="movie-grid-item">
+				<div key={movie._id} data-movie-id={movie._id} onClick={this._showMovieEditorForUpdate} className="movie-grid-item">
 					<div style={{width:100}}>{movie.shortTitle}</div>
 					<div style={{width:200}}>{movie.IntTitle}</div>
 					<div style={{width:200}}>{movie.Title}</div>
@@ -79,24 +79,30 @@ var MovieGrid = React.createClass({
 
 	_showMovieEditorForUpdate: function (e) {
 
-		if (this.state.previousSelected)
-			this.state.previousSelected.style.backgroundColor = '';
+		if (e.target.parentNode.getAttribute('data-movie-id'))
+		{
+			console.log ('du lieu hop le')
+			MovieListingsActions.getMovieInfos ('id o day')
+		}
+
+		// if (this.state.previousSelected)
+		// 	this.state.previousSelected.style.backgroundColor = '';
 		
-		e.target.parentNode.style.backgroundColor = '#F0F0F0';
+		// e.target.parentNode.style.backgroundColor = '#F0F0F0';
 
-		if (e.target.parentNode===this.state.previousSelected)
-		{
-			e.target.parentNode.style.backgroundColor = '';
-			this.state.previousSelected = null;
-			this.setState({updateMode: false})
-		}
-		else
-		{
-			this.state.previousSelected = e.target.parentNode;
-			this.setState({updateMode: true})
-		}
+		// if (e.target.parentNode===this.state.previousSelected)
+		// {
+		// 	e.target.parentNode.style.backgroundColor = '';
+		// 	this.state.previousSelected = null;
+		// 	this.setState({updateMode: false})
+		// }
+		// else
+		// {
+		// 	this.state.previousSelected = e.target.parentNode;
+		// 	this.setState({updateMode: true})
+		// }
 
-		this._showMovieEditor ();
+		// this._showMovieEditor ();
 	},
 
 	_showMovieEditor: function () {

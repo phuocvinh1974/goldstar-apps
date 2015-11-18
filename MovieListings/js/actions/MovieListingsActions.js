@@ -11,8 +11,7 @@ var MovieListingsActions = {
 	updateMovie: function (id,state) {
 		AppDispatcher.dispatch({
 			actionType: MovieListingsConstants.UPDATE_MOVIE,
-			movieId: id,
-			data: state
+			movieId: id, data: state
 		});
 	},
 	deleteMovie: function (id) {
@@ -24,6 +23,12 @@ var MovieListingsActions = {
 	listMovies: function () {
 		AppDispatcher.dispatch({
 			actionType: MovieListingsConstants.LIST_MOVIES
+		});
+	},
+	getMovieInfos: function (id) {
+		AppDispatcher.dispatch({
+			actionType: MovieListingsConstants.GET_MOVIE_INFOS,
+			movieId: id
 		});
 	}
 };
