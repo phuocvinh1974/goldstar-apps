@@ -6,8 +6,14 @@ var AuthBox = React.createClass({
 	getInitialState: function()
 	{
 		return {
+			notification: null,
 			username: null, password: null
 		}
+	},
+
+	componentWillReceiveProps: function(nP)
+	{
+		this.setState({notification: nP.notification})
 	},
 
 	render: function()
@@ -22,7 +28,7 @@ var AuthBox = React.createClass({
 					<input value={this.state.username} onChange={this._usernameOnChange} className="simple-input" type="text" placeholder="Enter Username" />
 					<input value={this.state.password} onChange={this._passwordOnChange} className="simple-input" type="password" placeholder="Password" />
 				</div>
-				<div className="auth-box-notification">{this.props.notification}</div>
+				{this.state.notification ? (<div className="auth-box-notification" style={{color:this.state.notification.color}}>{this.state.notification.text}</div>) : null}
 				<div className="auth-box-bottom">
 					<button onClick={this._signinOnClick} className="simple-button">SIGN IN</button>
 				</div>
@@ -33,12 +39,12 @@ var AuthBox = React.createClass({
 	
 	_usernameOnChange: function(e)
 	{
-		this.setState({username: e.target.value});
+		this.setState({username: e.target.value, notification: null});
 	},
 
 	_passwordOnChange: function(e)
 	{
-		this.setState({password: e.target.value});
+		this.setState({password: e.target.value, notification: null});
 	},
 	
 	_signinOnClick: function()

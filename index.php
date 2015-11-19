@@ -15,7 +15,7 @@
 					$package = json_decode ( file_get_contents ($dir.'/package.json'), true );
 					echo '
 						<div class="menu-item">
-							<div style="margin-right:8px;width:32px;height:32px;background-image:url('.basename($dir).'/img/login-logo.png);background-size:cover"></div>
+							<div style="margin-right:8px;width:32px;height:32px;background-image:url('.basename($dir).'/img/authbox-logo.png);background-size:cover"></div>
 							<div>
 								<div class="item" link="/'.basename ($dir).'">' . basename ($dir) . '</div>
 								<div>' . $package['description'] . '</div>

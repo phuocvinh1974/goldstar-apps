@@ -7,20 +7,30 @@ var MovieListingsApp = React.createClass({
 	getInitialState: function()
 	{
 		return {
-			auth: null
+			auth: AuthBoxStore.getAuth()
 		}
+	},
+
+	componentDidMount: function()
+	{
+		AuthBoxStore.addChangeListener(this._authboxOnChange);
 	},
 
 	render: function()
 	{
-		if (this.state.auth && this.state.auth.granted)
+		if (this.state.auth.granted)
 		{
 			return <div>PROG</div>
 		}
 		else
 		{
-			return <AuthBox notification={null} />;
+			return <AuthBox notification={this.state.auth.msg} />;
 		}
+	},
+
+	_authboxOnChange: function()
+	{
+		this.setState({auth: AuthBoxStore.getAuth()});
 	}
 });
 

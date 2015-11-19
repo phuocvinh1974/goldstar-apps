@@ -59,6 +59,9 @@ body
 
 .auth-box-mid {padding: 8px;}
 .auth-box-mid > input {margin-top: 8px;}
+
+.auth-box-notification {padding: 12px 8px 0 8px;}
+
 .auth-box-bottom {margin-top:24px; text-align: center;}
 .auth-box-bottom > button {background-color: #E91E63; color: #FFF;}
 
