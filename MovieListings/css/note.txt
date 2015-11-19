@@ -1,0 +1,179 @@
+input
+{
+	height: 30px;
+	border: none;
+	background-color: #fff;
+	outline: none;
+	text-indent: 5px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+input::-webkit-input-placeholder
+{
+   color: #CCC;
+}
+
+select
+{
+	height: 30px;
+	border: none;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+button
+{
+	width: 100px;
+	height: 30px;
+	background-color: #F6F6F6;
+	border: none;
+	cursor: pointer;
+	outline: none;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.material-icons
+{
+	cursor: pointer;
+}
+
+.material-input
+{
+	background-color: transparent !important;
+	box-shadow: none !important;
+	border-bottom: 1px solid #DDD;
+	width: 100%;
+}
+
+.material-input:hover
+{
+	border-left: 3px solid #DDD;
+}
+
+/* MORE ICON MENU */
+
+.simple-menu
+{
+	background-color: #FFF; 
+	cursor: pointer;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.simple-menu > div
+{
+	padding: 8px 16px 8px 16px;
+}
+
+.simple-menu > div:hover
+{
+	background-color: #EEE;
+}
+
+/* DRAWER ICON MENU */
+
+.navigation-drawer
+{
+	background-color: #FFF;
+	box-shadow: 8px 0 4px rgba(0,0,0,0.10), 4px 0 4px rgba(0,0,0,0.20);
+}
+
+.navigation-drawer > div:nth-child(1) /*head*/
+{
+	margin-bottom: 16px;
+	background-color: #D81B60;
+	background-image: url(../img/drawer-head.png);
+}
+
+.navigation-drawer > div:nth-child(2) > div /*menu items*/
+{
+	padding: 16px;
+	cursor: pointer;
+}
+
+.navigation-drawer > div:nth-child(2) > div:hover
+{
+	padding: 16px;
+	background-color: #EEE;
+}
+
+/* MOVIEGRID COMPONENT */
+
+.movie-grid
+{
+	display: -webkit-flex;
+	margin-top: 16px;
+}
+
+.movie-grid > div:nth-child(1) > i
+{
+	padding-left: 10px;
+	color: #FFF;
+	cursor: pointer;
+}
+
+.movie-grid > div:nth-child(2), .movie-grid > div:nth-child(3)
+{
+	margin-left: 20px;
+}
+
+.movie-grid-items
+{
+	background-color: #FFF;
+	padding: 8px;
+	box-shadow: 0px 0px 15px rgba(0,0,0,0.35);
+	cursor: default;
+}
+
+.movie-grid-items-head
+{
+	display: -webkit-flex;
+	color: #C2185B;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+
+.movie-grid-item
+{
+	display: -webkit-flex;
+	border-top: 1px dotted #F0F0F0;
+	height: 32px;
+	line-height: 32px;
+}
+
+/* MOVIE EDITOR */
+
+.movie-editor
+{
+	width: 240px; height: 520px;
+	background-color: #FFF;
+	padding: 8px;
+	box-shadow: 0px 0px 15px rgba(0,0,0,0.35)
+}
+
+.movie-editor-head
+{
+	display: -webkit-flex;
+	-webkit-justify-content: flex-end;
+	background-color: #F0F0F0;
+}
+
+.movie-editor-inputs
+{
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding: 0 16px 0 0;
+	margin: 8px 0 8px 0;
+}
+
+.movie-editor-inputs > div
+{
+	margin-top: 8px;
+}
+
+.movie-editor-buttons
+{
+	display: -webkit-flex;
+	-webkit-justify-content: flex-end;
+	margin-top: 24px;
+}
+
+.movie-editor-buttons > button {margin-left: 8px;}

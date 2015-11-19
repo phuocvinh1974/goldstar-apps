@@ -2,7 +2,7 @@
 
 	require_once __DIR__ . '/commons/database-connection.php';
 
-	$request = json_decode( file_get_contents ("php://input") );
+	$request = json_decode( file_get_contents('php://input') );
 
 	try
 	{

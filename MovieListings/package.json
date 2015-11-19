@@ -8,25 +8,23 @@
 	"license": "MIT",
 
 	"dependencies": {
-		"react": "^0.14.2",
-		"react-dom": "^0.14.2",
+		"react": "^0.14.3",
+		"react-dom": "^0.14.3",
 		"flux": "^2.1.1",
 		"object-assign": "^4.0.1",
 		"keymirror": "^0.1.1",
 		"axios": "^0.7.0",
-		"react-addons-css-transition-group": "latest",
-		"velocity-react": "latest"
+		"velocity-react": "^1.1.1"
 	},
 
 	"devDependencies": {
-		"browserify": "^11.2.0",
-		"babelify": "^6.4.0",
-		"uglify-js": "latest"
+		"browserify": "^12.0.1",
+		"babelify": "^7.2.0",
+		"babel-preset-react": "^6.1.18",
+		"uglify-js": "^2.6.1"
 	},
 
-	"peerDependencies": {},
-
 	"scripts": {
-		"build": "browserify js/app.js -t babelify | uglifyjs -cm > js/bundle.min.js"
+		"start": "browserify -t [ babelify --presets [ react ] ] js/app.js | uglifyjs -cm > js/bundle.min.js"
 	}
 }

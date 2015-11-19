@@ -2,12 +2,15 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AuthBoxConstants = require('../constants/AuthBoxConstants');
 
 var AuthBoxActions = {
-	signIn: function(username,password)
-	{
+	signIn: function (state) {
 		AppDispatcher.dispatch({
 			actionType: AuthBoxConstants.SIGN_IN,
-			username: username,
-			password: password
+			data: state
+		});
+	},
+	signOut: function () {
+		AppDispatcher.dispatch({
+			actionType: AuthBoxConstants.SIGN_OUT
 		});
 	}
 };
