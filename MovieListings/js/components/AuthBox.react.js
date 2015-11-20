@@ -19,9 +19,9 @@ var AuthBox = React.createClass({
 	render: function()
 	{
 		return (
-			<div className="auth-box">
+			<div className="auth-box" onKeyDown={this._keyHandle}>
 				<div className="auth-box-top">
-					<div><i className="material-icons">close</i></div>
+					<div><i onClick={this._closeOnClick} className="material-icons" type="button">close</i></div>
 					<div>Sign in to your account.</div>
 				</div>
 				<div className="auth-box-mid">
@@ -37,20 +37,13 @@ var AuthBox = React.createClass({
 		)
 	},
 	
-	_usernameOnChange: function(e)
-	{
-		this.setState({username: e.target.value, notification: null});
-	},
+	_usernameOnChange: function(e) {this.setState({username: e.target.value, notification: null});},
+	_passwordOnChange: function(e) {this.setState({password: e.target.value, notification: null});},
 
-	_passwordOnChange: function(e)
-	{
-		this.setState({password: e.target.value, notification: null});
-	},
+	_closeOnClick: function() {window.location = '/';},
+	_keyHandle: function(e) { if (e.keyCode===13) this._signinOnClick();},
 	
-	_signinOnClick: function()
-	{
-		AuthBoxActions.signIn(this.state.username, this.state.password);
-	}
+	_signinOnClick: function() {AuthBoxActions.signIn(this.state.username, this.state.password);}
 });
 
 module.exports = AuthBox;

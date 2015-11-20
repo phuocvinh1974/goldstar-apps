@@ -44,6 +44,8 @@ body
 
 /* COMMONS */
 
+.material-icons[type=button] {cursor: pointer;}
+
 .simple-input {border: none; outline: none; text-indent: 5px; background-color: transparent; border-bottom: 1px solid #DDD; width: 100%; height: 32px;}
 .simple-input:hover {border-bottom: 1px solid #BBB}
 
